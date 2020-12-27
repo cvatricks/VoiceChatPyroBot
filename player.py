@@ -29,7 +29,7 @@ def worker():
             log = item["log"][0](
                 *args
             )
-        process = Popen(["mplayer", item["file"]], stdin=PIPE)
+        process = Popen(["mplayer.py", item["file"]], stdin=PIPE)
         process.wait()
         item["end"][0](
             *item["end"][1],
