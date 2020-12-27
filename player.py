@@ -1,7 +1,5 @@
 import threading
 import queue
-import mplayer
-p = mplayer.Player()
 from subprocess import Popen, PIPE
 
 q = queue.Queue()
