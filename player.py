@@ -1,5 +1,7 @@
 import threading
 import queue
+import mplayer
+p = mplayer.Player()
 from subprocess import Popen, PIPE
 
 q = queue.Queue()
@@ -29,7 +31,7 @@ def worker():
             log = item["log"][0](
                 *args
             )
-        process = Popen([item["file"]], stdin=PIPE)
+        process = Popen([p.loadfile(item["file"])], stdin=PIPE)
         process.wait()
         item["end"][0](
             *item["end"][1],
